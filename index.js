@@ -12,9 +12,9 @@ const server = http.createServer((req, res) => {
 });
 
 // cron-jobs
-cron.schedule('*/15 * * * * *', () => {
-    console.log('running a task every 15 seconds');
-  });
+// cron.schedule('*/15 * * * * *', () => {
+//     console.log('running a task every 15 seconds');
+//   });
 
 // run job to ensure app is awake for order execution
 cron.schedule('50,53 15 * * Monday,Tuesday,Wednesday,Thursday,Friday', () => {
