@@ -1,0 +1,23 @@
+{
+  "name": "wake-up-cron",
+  "version": "1.0.0",
+  "description": "A simple node.js script to ping a website at a set time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephdaw/wake-up-cron.git"
+  },
+  "keywords": [
+    "node",
+    "cron"
+  ],
+  "author": "Joseph Daw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephdaw/wake-up-cron/issues"
+  },
+  "homepage": "https://github.com/josephdaw/wake-up-cron#readme"
+}
