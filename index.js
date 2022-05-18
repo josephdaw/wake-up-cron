@@ -16,18 +16,43 @@ const server = http.createServer((req, res) => {
 //     console.log('running a task every 15 seconds');
 //   });
 
-// run job to ensure app is awake for order execution
-cron.schedule('50,53 15 * * Monday,Tuesday,Wednesday,Thursday,Friday', () => {
+// run job to ensure dev app is awake for order execution
+cron.schedule('29,50,53 15 * * Monday,Tuesday,Wednesday,Thursday,Friday', () => {
 
     const options = {
-        hostname: 'universaltrademanager.herokuapp.com',
+        hostname: 'utm-dev.herokuapp.com',
         port: 443,
         path: '/',
         method: 'GET'
     }
 
     const req = https.request(options, res => {
-        console.log(`Refreshing webpage. StatusCode: ${res.statusCode}`)
+        console.log(`Refreshing ${options.hostname}. StatusCode: ${res.statusCode}`)
+    })
+
+    req.on('error', error => {
+        console.error(error)
+    })
+
+    req.end()
+
+}, {
+    scheduled: true,
+    timezone: "America/New_York"
+});
+
+// run job to ensure staging app is awake for order execution
+cron.schedule('29,50,53 15 * * Monday,Tuesday,Wednesday,Thursday,Friday', () => {
+
+    const options = {
+        hostname: 'utm-staging.herokuapp.com',
+        port: 443,
+        path: '/',
+        method: 'GET'
+    }
+
+    const req = https.request(options, res => {
+        console.log(`Refreshing ${options.hostname}. StatusCode: ${res.statusCode}`)
     })
 
     req.on('error', error => {
